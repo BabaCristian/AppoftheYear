@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WakeR</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_statistics">Statistic</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_satisfaction">Satisfaction</string>
+    <string name="nav_statisctics">Statistics</string>
+</resources>
