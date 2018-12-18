@@ -1,13 +1,10 @@
 <resources>
-    <string name="app_name">WakeR</string>
-    <string name="nav_home">Home</string>
-    <string name="nav_statistics">Statistic</string>
-    <string name="nav_stats">Stats</string>
-    <string name="nav_satisfaction">Satisfaction</string>
-    <string name="nav_statisctics">Statistics</string>
-    <string name="nav_wekker">Statistics</string>
-
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_calculator">Calculator</string>
+    <string name="nav_scan">Scan</string>
+    <string name="nav_wekker">Wekker</string>
+    <string name="app_name">Wekker</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
