@@ -4,8 +4,11 @@
 
     <item
         android:icon="@drawable/ic_access_alarm_black_24dp"
-        android:title="@string/nav_home" />
+        android:title="@string/nav_wekker" />
     <item
+        android:icon="@drawable/ic_show_chart_black_24dp"
         android:title="@string/nav_stats" />
-    <item android:title="@string/nav_statisctics" />
+    <item
+        android:icon="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        android:title="@string/nav_statisctics" />
 </menu>
