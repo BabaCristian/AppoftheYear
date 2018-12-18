@@ -3,12 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/nav_wekker"
         android:icon="@drawable/ic_access_alarm_black_24dp"
         android:title="@string/nav_wekker" />
     <item
-        android:icon="@drawable/ic_show_chart_black_24dp"
-        android:title="@string/nav_stats" />
+        android:id="@+id/nav_calculator"
+        android:icon="@drawable/ic_brightness_3_black_24dp"
+        android:title="@string/nav_calculator" />
     <item
-        android:icon="@drawable/ic_sentiment_very_satisfied_black_24dp"
-        android:title="@string/nav_statisctics" />
+        android:id="@+id/nav_scan"
+        android:icon="@drawable/ic_fullscreen_black_24dp"
+        android:title="@string/nav_scan" />
 </menu>
