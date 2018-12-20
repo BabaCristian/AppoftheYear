@@ -1,31 +1,20 @@
 package com.example.crist.waker;
 
-import android.app.FragmentTransaction;
-import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenu;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-public class MainActivity extends AppCompatActivity {
-    //nav
+public class SleepCalcActivity extends AppCompatActivity {
     private BottomNavigationView mainNav;
     private FrameLayout mainFrame;
-
-    // fragments
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sleep_calc);
 
         //init all
         mainFrame = (FrameLayout) findViewById(R.id.main_frame);
@@ -39,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.nav_wekker :
-                       // Intent intent = new Intent(MainActivity.this , ScannerActivity.class);
-                       // startActivity(intent);
+                        Intent intent = new Intent(SleepCalcActivity.this , MainActivity.class);
+                        startActivity(intent);
 
                     case R.id.nav_calculator :
-                        Intent intent = new Intent(MainActivity.this , SleepCalcActivity.class);
-                        startActivity(intent);
+                          //Intent intent1 = new Intent(SleepCalcActivity.this , SleepCalcActivity.class);
+                         //startActivity(intent1);
                     case R.id.nav_scan :
 
-                        Intent intent1 = new Intent(MainActivity.this , ScannerActivity.class);
+                        Intent intent1 = new Intent(SleepCalcActivity.this , ScannerActivity.class);
                         startActivity(intent1);
 
 
@@ -57,6 +46,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
