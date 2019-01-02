@@ -12,7 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     //nav
@@ -27,11 +34,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        GoToAlarmSet();
+
+
+
+
+
+
+
         //init all
         mainFrame = (FrameLayout) findViewById(R.id.main_frame);
         mainNav = (BottomNavigationView) findViewById(R.id.main_nav);
-
-
 
         mainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -59,4 +72,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void GoToAlarmSet() {
+        Button btnAlarmSet = (Button) findViewById(R.id.btnAddAlarm);
+        btnAlarmSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, AlarmSetActivity.class));
+            }
+        });
+    }
 }
+
