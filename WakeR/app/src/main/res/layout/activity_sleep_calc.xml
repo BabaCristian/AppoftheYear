@@ -17,17 +17,96 @@
         app:itemTextColor="@android:color/white"
         app:menu="@menu/nav_items"></android.support.design.widget.BottomNavigationView>
 
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/main_nav"
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-180dp"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@+id/btnwhenbed"
+        android:text="I want to wake up at..."
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtView4"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-178dp"
+        android:layout_marginTop="98dp"
+        android:layout_toEndOf="@+id/btnwhenbed"
+        android:text="How long does it take you to fall asleep?"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtVmessage"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-181dp"
+        android:layout_marginTop="316dp"
+        android:layout_toEndOf="@+id/btnwhenbed"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtView5"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-181dp"
+        android:layout_marginTop="348dp"
+        android:layout_toEndOf="@+id/btnwhenbed"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtView2"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-175dp"
+        android:layout_marginTop="230dp"
+        android:layout_toEndOf="@+id/btnwhenbed"
+        android:text="If I sleep now"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnwhenbed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="-56dp">
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="43dp"
+        android:text="Go to bed at" />
 
-    </FrameLayout>
+    <Button
+        android:id="@+id/btnwhenup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="262dp"
+        android:text="Wake up at" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-68dp"
+        android:layout_marginEnd="95dp"
+        android:ems="10"
+        android:inputType="textPersonName|number"
+        android:text="15" />
+
 
 </RelativeLayout>

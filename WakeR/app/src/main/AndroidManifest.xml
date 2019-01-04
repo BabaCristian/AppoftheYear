@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SleepCalcActivity" />
-        <activity android:name=".ScannerActivity"></activity>
+        <activity android:name=".ScannerActivity" />
+        <activity android:name=".AlarmSetActivity"></activity>
+<receiver android:name=".AlertReceiver"/>
+
     </application>
 
 </manifest>
