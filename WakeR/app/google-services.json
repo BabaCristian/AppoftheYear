@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "834756117975",
+    "firebase_url": "https://waker-d764e.firebaseio.com",
+    "project_id": "waker-d764e",
+    "storage_bucket": "waker-d764e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834756117975:android:babf7ee0a3069b58",
+        "android_client_info": {
+          "package_name": "com.example.crist.waker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834756117975-g7ltdfpn7q70mpu45jenuc6uegbd0bdf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.crist.waker",
+            "certificate_hash": "b54415a188d8ca6becc307a1e99fa90054c50120"
+          }
+        },
+        {
+          "client_id": "834756117975-jrhbteja5hf77fb90mp24ufju6vlhvm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJpbDHLss-_lTrEy9BZg5V-Q4nn4ih9Xo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834756117975-jrhbteja5hf77fb90mp24ufju6vlhvm3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
