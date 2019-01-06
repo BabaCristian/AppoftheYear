@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class AlarmSetActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
+public class AlarmSetActivity extends AppCompatActivity /* implements TimePickerDialog.OnTimeSetListener*/ {
 
 
     TimePicker alarmtime;
@@ -33,7 +33,7 @@ public class AlarmSetActivity extends AppCompatActivity implements TimePickerDia
     TimePicker alarm_timepicker;
     TextView update_text;
     Context context;
-   final Ringtone alarmSound = RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)); //ALARMSOUND
+    //Ringtone alarmSound = RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)); //ALARMSOUND
 
 
 
@@ -45,7 +45,76 @@ public class AlarmSetActivity extends AppCompatActivity implements TimePickerDia
         alarmtime = findViewById(R.id.timePicker);
         currentTime = findViewById(R.id.txtClock);
 
-        mTextView = findViewById(R.id.textView);
+
+        final Ringtone alarmSound = RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)); //ALARMSOUND
+
+        Button btnstop = (Button) findViewById(R.id.btnstop);
+        btnstop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String stringAlarmTime;
+                Integer alarmHours = alarmtime.getCurrentHour();
+
+                // stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmTime).concat(" AM");
+                alarmSound.stop();
+            }
+        });
+
+        Button btnStart = (Button) findViewById(R.id.btnstart);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+                if (currentTime.getText().toString().equals(AlarmTime())){
+                    alarmSound.play();
+
+                }
+                else   {
+                    alarmSound.stop();
+                }
+
+            }
+        }, 0, 1000);//Check elke 1000ms.
+
+
+
+    }
+
+
+
+
+    public String AlarmTime(){
+        Integer alarmHours = alarmtime.getCurrentHour();
+        Integer alarmMinutes = alarmtime.getCurrentMinute();
+        String stringAlarmMinutes;
+        String stringAlarmTime;
+        if (alarmMinutes < 10){
+            stringAlarmMinutes = "0";
+            stringAlarmMinutes = stringAlarmMinutes.concat(alarmMinutes.toString());
+        }
+        else{
+            stringAlarmMinutes = alarmMinutes.toString();
+        }
+        if (alarmHours>12){
+            alarmHours=alarmHours-12;
+            stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmMinutes).concat(" PM");
+        }
+        else{
+            stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmMinutes).concat(" AM");
+        }
+        return stringAlarmTime;
+    }
+
+    /*
+    mTextView = findViewById(R.id.textView);
 
 
         Button btnStart = (Button) findViewById(R.id.btnstart);
@@ -129,7 +198,7 @@ public class AlarmSetActivity extends AppCompatActivity implements TimePickerDia
 
 
         /*TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText(hourOfDay + " : " + minute);*/
+        textView.setText(hourOfDay + " : " + minute);
     }
 
     private void updateTimeText(Calendar c){
@@ -159,5 +228,5 @@ public class AlarmSetActivity extends AppCompatActivity implements TimePickerDia
 
         alarmManager.cancel(pendingIntent);
         mTextView.setText("Alarm Canceled");
-    }
+    }*/
 }
