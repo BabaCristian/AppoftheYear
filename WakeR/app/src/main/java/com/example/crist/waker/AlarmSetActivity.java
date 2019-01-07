@@ -51,7 +51,7 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
         alarmtime = findViewById(R.id.timePicker);
         currentTime = findViewById(R.id.txtClock);
 
-        //ALERTDIALOG
+        //ALERTDIALOG voor scanner
         myAlertBuilder = new
                 AlertDialog.Builder(AlarmSetActivity.this);
         myAlertBuilder.setTitle("Alert");
