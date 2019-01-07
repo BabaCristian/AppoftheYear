@@ -89,8 +89,10 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
                 Integer alarmHours = alarmtime.getCurrentHour();
 
                 // stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmTime).concat(" AM");
-                setAlarm = false;
-                alarmSound.stop();
+               // alarmSound.stop();
+                if (setAlarm == true && currentTime.getText().toString().equals(AlarmTime())) {
+                    myAlertBuilder.show();
+                }
             }
         });
 
@@ -99,10 +101,7 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
             @Override
             public void onClick(View view) {
                 setAlarm = true ;
-                myAlertBuilder.show();
-                if (currentTime.getText().toString().equals(AlarmTime())) {
-                    myAlertBuilder.show();
-                }
+
             }
         });
 

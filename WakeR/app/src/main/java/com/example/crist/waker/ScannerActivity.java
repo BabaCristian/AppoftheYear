@@ -24,6 +24,7 @@ public class ScannerActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonScan;
     private TextView textViewName, textViewID;
     private IntentIntegrator qrScan;
+    private boolean wekkerstate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,7 @@ public class ScannerActivity extends AppCompatActivity implements View.OnClickLi
         textViewName = (TextView) findViewById(R.id.textViewName);
         textViewID = (TextView) findViewById(R.id.textViewID);
         buttonScan.setOnClickListener(this);
+        wekkerstate = getIntent().getBooleanExtra("setalarm",false);
 
 
 
@@ -77,9 +79,11 @@ public class ScannerActivity extends AppCompatActivity implements View.OnClickLi
                 try {
                     //data naar json converteren voor database
                     JSONObject obj = new JSONObject(result.getContents());
-                    //setting values to textviews
+                    //textviews values geven
                     textViewName.setText(obj.getString("name"));
                     textViewID.setText(obj.getString("personalwakenr"));
+                    //boolean false zetten voor wekker uit te zetten
+                    wekkerstate = false;
                 } catch (JSONException e) {
                     e.printStackTrace();
                     //if control comes here
