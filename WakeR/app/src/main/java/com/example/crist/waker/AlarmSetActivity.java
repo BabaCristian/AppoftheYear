@@ -1,9 +1,11 @@
 package com.example.crist.waker;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -33,6 +36,9 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
     TimePicker alarm_timepicker;
     TextView update_text;
     Context context;
+    boolean setAlarm = false;
+    AlertDialog.Builder myAlertBuilder;
+    private AlertDialog.Builder builder;
     //Ringtone alarmSound = RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)); //ALARMSOUND
 
 
@@ -45,6 +51,33 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
         alarmtime = findViewById(R.id.timePicker);
         currentTime = findViewById(R.id.txtClock);
 
+        //ALERTDIALOG
+        myAlertBuilder = new
+                AlertDialog.Builder(AlarmSetActivity.this);
+        myAlertBuilder.setTitle("Alert");
+        myAlertBuilder.setMessage("Click SCAN to continue, or Cancel :");
+        // Add the dialog buttons.
+        myAlertBuilder.setPositiveButton("SCAN", new
+                DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User clicked OK button.
+                        Intent intent = new Intent(AlarmSetActivity.this, ScannerActivity.class);
+                        intent.putExtra("setalarm", setAlarm );
+                        startActivity(intent);
+                        Toast.makeText(getApplicationContext(), "waiting to scan",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+        myAlertBuilder.setNegativeButton("Cancel", new
+                DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // User cancelled the dialog.
+                        Toast.makeText(getApplicationContext(), "Pressed Cancel",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
 
         final Ringtone alarmSound = RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)); //ALARMSOUND
 
@@ -56,6 +89,7 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
                 Integer alarmHours = alarmtime.getCurrentHour();
 
                 // stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmTime).concat(" AM");
+                setAlarm = false;
                 alarmSound.stop();
             }
         });
@@ -64,7 +98,11 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                setAlarm = true ;
+                myAlertBuilder.show();
+                if (currentTime.getText().toString().equals(AlarmTime())) {
+                    myAlertBuilder.show();
+                }
             }
         });
 
@@ -73,7 +111,7 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
             @Override
             public void run() {
 
-                if (currentTime.getText().toString().equals(AlarmTime())){
+                if (setAlarm == true && currentTime.getText().toString().equals(AlarmTime())){
                     alarmSound.play();
 
                 }
@@ -112,6 +150,7 @@ public class AlarmSetActivity extends AppCompatActivity /* implements TimePicker
         }
         return stringAlarmTime;
     }
+
 
     /*
     mTextView = findViewById(R.id.textView);

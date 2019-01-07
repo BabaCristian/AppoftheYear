@@ -69,13 +69,13 @@ public class ScannerActivity extends AppCompatActivity implements View.OnClickLi
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
-            //if qrcode has nothing in it
+            //als er geen qr code is
             if (result.getContents() == null) {
                 Toast.makeText(this, "Result Not Found", Toast.LENGTH_LONG).show();
             } else {
-                //if qr contains data
+                //als de qr code data bevat
                 try {
-                    //converting the data to json
+                    //data naar json converteren voor database
                     JSONObject obj = new JSONObject(result.getContents());
                     //setting values to textviews
                     textViewName.setText(obj.getString("name"));
